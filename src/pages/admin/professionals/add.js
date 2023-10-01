@@ -45,7 +45,6 @@ export const AddProf = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = validateProfData(baseData, requiredFields);
-    console.log('errors : ', errors);
     if (errors) {
       setErrors(errors);
       return;

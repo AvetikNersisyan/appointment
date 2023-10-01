@@ -77,7 +77,6 @@ export const AddService = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = validateServiceData(baseData, requiredFields);
-    console.log('errors validattt: ', errors);
 
     if (errors) {
       setErrors(errors);

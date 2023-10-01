@@ -1,14 +1,15 @@
 import { useSelector } from 'react-redux';
 import { ListTable } from '../../../components/ListTable/ListTable';
+import { selectHoursSlice } from '../../../store/admin/availableHours/services';
 import { selectProfSlice } from '../../../store/admin/professionals/professionals';
 
 
 export const List  = () => {
-  const { list } = useSelector(selectProfSlice);
+  const { list } = useSelector(selectHoursSlice);
   const cols = [
     {
-    title: 'Name',
-    dataIndex: 'name'
+    title: 'Professional',
+    dataIndex: 'professionalID'
   },
   {
     title: 'Surname',

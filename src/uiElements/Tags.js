@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 
 export const Tags = (props) => {
-  const { list, selected: selectedIDs, onDeselect, onSelect } = props;
+  const { list, selected: selectedIDs = [], onDeselect, onSelect } = props;
   const onClose = (item) => {
     onDeselect && onDeselect(item);
   };

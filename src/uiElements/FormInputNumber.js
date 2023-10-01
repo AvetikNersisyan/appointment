@@ -12,9 +12,7 @@ export const FormInputNumber = (props) => {
   const { value, label, name, onChange, placeholder, errors = {}, ...other } = props;
   const [touched, setIsTouched] = useState(false);
 
-  console.log('errors inside: ', errors[name]);
   const onChangeHandler = (e, ...props) => {
-    console.log('e : ', e);
     setIsTouched(true);
    typeof onChange === 'function' && onChange(e, ...props);
   }

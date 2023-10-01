@@ -40,9 +40,7 @@ export const List  = () => {
         return {
           ...item,
           renderCell: (row) => {
-            console.log('row : ', row);
             const profCandidate = profsList.filter(item => row.professionalID.includes(item.id) );
-            console.log('profCandidate : ', profCandidate);
             if (profCandidate && profCandidate.length) {
               return (
                 <HStack>

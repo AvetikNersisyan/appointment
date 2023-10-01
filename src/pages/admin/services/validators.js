@@ -1,7 +1,6 @@
 export const validateServiceData = (data = {}, requiredFields = []) => {
   const errors = {};
 
-  console.log('data : ', data);
   requiredFields.forEach(item => {
 
     if (!data[item.dataIndex]) {

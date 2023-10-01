@@ -16,7 +16,7 @@ export const FormInput = (props) => {
   }
 
   return (
-    <FormControl isInvalid={errors[name] && touched}>
+    <FormControl isInvalid={errors[name]}>
       <FormLabel>{label}</FormLabel>
       <Input value={value} onChange={onChangeHandler} placeholder={placeholder} />
       <FormErrorMessage>{errors[name]}</FormErrorMessage>

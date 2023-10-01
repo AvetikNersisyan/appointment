@@ -28,7 +28,10 @@ export const ListTable = (props) => {
   })
 
   const renderRow = (row) => {
-   return  columns.map(({dataIndex}) => {
+   return  columns.map(({dataIndex, renderCell}) => {
+     if (typeof renderCell === 'function') {
+       return  <Td> {renderCell(row)}</Td>
+     }
       return   <Td>{row[dataIndex]}</Td>
     })
   }
@@ -43,7 +46,6 @@ export const ListTable = (props) => {
   return (
     <TableContainer>
       <Table variant='simple'>
-        <TableCaption>Imperial to metric conversion factors</TableCaption>
         <Thead>
           <Tr>
             {columnsData}

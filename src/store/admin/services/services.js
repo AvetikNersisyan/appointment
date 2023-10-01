@@ -21,6 +21,9 @@ export const serviceSlice  = createSlice({
     listRefresh (state, action)  {
       return void(state.list = action.payload);
     },
+    baseDataReset: (state) => {
+      return void(state.baseData = initialState.baseData);
+    }
 
   }
 })
@@ -28,10 +31,11 @@ export const serviceSlice  = createSlice({
 export const { reducer: serviceReducer} = serviceSlice;
 export const selectServiceSlice = state => state.admin.services;
 
-const { baseDataRefresh, listRefresh } = serviceSlice.actions;
+const { baseDataRefresh, listRefresh, baseDataReset } = serviceSlice.actions;
 
 export const serviceActions = {
   baseDataRefresh,
+  baseDataReset,
   listRefresh,
 }
 

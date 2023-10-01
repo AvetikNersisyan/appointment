@@ -19,6 +19,9 @@ export const profSlice  = createSlice({
     listRefresh (state, action)  {
       return void(state.list = action.payload);
     },
+    baseDataReset: (state) => {
+      return void(state.baseData = initialState.baseData);
+    }
 
   }
 })
@@ -26,10 +29,11 @@ export const profSlice  = createSlice({
 export const { reducer: profReducer} = profSlice;
 export const selectProfSlice = state => state.admin.profs;
 
-const { baseDataRefresh, listRefresh } = profSlice.actions;
+const { baseDataRefresh, listRefresh, baseDataReset } = profSlice.actions;
 
 export const profActions = {
   baseDataRefresh,
   listRefresh,
+  baseDataReset,
 }
 

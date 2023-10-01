@@ -88,6 +88,8 @@ export const AddService = () => {
     const clonedList = cloneDeep(serviceList);
     clonedList.push(baseData);
     dispatch(serviceActions.listRefresh(clonedList));
+    dispatch(serviceActions.baseDataReset());
+
   }
   return (
     <FormWrapper>
@@ -97,6 +99,7 @@ export const AddService = () => {
           name={'name'}
           label={'Name'}
           placeholder={'Name'}
+          value={baseData.name}
           onChange={(e) => onValueChange(e.target.value, 'name')}
         />
         <FormInputNumber

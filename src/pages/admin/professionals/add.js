@@ -52,6 +52,7 @@ export const AddProf = () => {
       setErrors({})
     }
     saveData(baseData);
+    dispatch(profActions.baseDataReset());
 
   }
   return (
@@ -62,6 +63,7 @@ export const AddProf = () => {
           name={'name'}
           label={'Name'}
           placeholder={'Name'}
+          value={baseData.name}
           onChange={(e) => onValueChange(e.target.value, 'name')}
         />
         <FormInput
@@ -69,6 +71,7 @@ export const AddProf = () => {
           name={'lastName'}
           label={'Surname'}
           placeholder={'Surname'}
+          value={baseData.lastName}
           onChange={(e) => onValueChange(e.target.value, 'lastName')}
         />
 

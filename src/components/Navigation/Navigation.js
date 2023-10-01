@@ -1,14 +1,13 @@
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import { Tab, TabList, Tabs } from '@chakra-ui/react';
+import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import { AvailableHours } from '../../pages/admin/availableHours/availableHours';
-import { Professionals } from '../../pages/admin/professionals/professionals';
-import { Services } from '../../pages/admin/services/services';
+import {  } from '../../pages/admin/professionals/professionals';
 import { ADMIN_ROUTES } from '../../routing/utils';
 
 
 const initAdminNavigation = (adminRoutes = []) => {
   return adminRoutes.map(item => (
-    <Tab>
+    <Tab >
       <NavLink to={item.path}>
         {item.title}
       </NavLink>
@@ -17,9 +16,10 @@ const initAdminNavigation = (adminRoutes = []) => {
 };
 
 export const Navigation = () => {
-
+  const location = useLocation();
+  const index  = ADMIN_ROUTES.findIndex(item => location.pathname.includes(item.path))
   return (
-    <Tabs variant='soft-rounded' colorScheme='green'>
+    <Tabs index={index} variant='soft-rounded' colorScheme='green'>
       <TabList>
         {initAdminNavigation(ADMIN_ROUTES)}
       </TabList>

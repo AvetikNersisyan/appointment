@@ -10,36 +10,21 @@ import {
   theme,
 } from '@chakra-ui/react';
 import { RouterProvider } from 'react-router';
+import { Provider } from 'react-redux'
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
 import { router } from './routing/Routes';
+import { store } from './store/store';
+
 
 function App() {
   return (
+    <Provider store={store}>
       <ChakraProvider theme={theme}>
-    <RouterProvider router={router}>
-        <Box textAlign="center" fontSize="xl">
-          <Grid minH="100vh" p={3}>
-            <ColorModeSwitcher justifySelf="flex-end" />
-            <VStack spacing={8}>
-              <Logo h="40vmin" pointerEvents="none" />
-              <Text>
-                Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-              </Text>
-              <Link
-                color="teal.500"
-                href="https://chakra-ui.com"
-                fontSize="2xl"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Learn Chakra
-              </Link>
-            </VStack>
-          </Grid>
-        </Box>
-    </RouterProvider>
+        <RouterProvider router={router}>
+        </RouterProvider>
       </ChakraProvider>
+    </Provider>
 
   );
 }
